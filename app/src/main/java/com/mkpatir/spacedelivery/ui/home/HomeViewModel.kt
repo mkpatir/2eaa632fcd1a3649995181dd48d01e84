@@ -11,6 +11,7 @@ import com.mkpatir.spacedelivery.internal.extension.distanceBetweenCurrentLocati
 import com.mkpatir.spacedelivery.internal.extension.orZero
 import com.mkpatir.spacedelivery.internal.extension.toFavoriteModel
 import com.mkpatir.spacedelivery.internal.utils.PreferenceHelper
+import com.mkpatir.spacedelivery.models.TravelEndReason
 import com.mkpatir.spacedelivery.ui.base.BaseViewModel
 import java.util.*
 import kotlin.collections.ArrayList
@@ -37,7 +38,7 @@ class HomeViewModel(
     var currentLocationY: Float = 0f
 
     val spaceStationsLiveData = MutableLiveData<ArrayList<SpaceStationModel>>()
-    val travelEndLiveData = MutableLiveData<Unit>()
+    val travelEndLiveData = MutableLiveData<TravelEndReason>()
     val damageTimeLiveData = MutableLiveData<Int>()
     val rvIndexLiveData = MutableLiveData<Int>()
     val favoritesLiveData = MutableLiveData<List<FavoritesModel>>()
@@ -86,7 +87,7 @@ class HomeViewModel(
                 }
                 ugsValue.set(0)
                 eusValue.set(eusValue.get().orZero() - spaceStationModel.distanceBetweenCurrentLocation(currentLocationX, currentLocationY))
-                setTravelEnd(tempList)
+                setTravelEnd(tempList,TravelEndReason.UGS_OVER)
             }
             spaceStationModel.distanceBetweenCurrentLocation(currentLocationX,currentLocationY) == eusValue.get().orZero() -> {
                 spaceStationsLiveData.value?.forEachIndexed {  index, item ->
@@ -97,7 +98,7 @@ class HomeViewModel(
                 }
                 ugsValue.set(ugsValue.get().orZero() - spaceStationModel.need.orZero())
                 eusValue.set(0)
-                setTravelEnd(tempList)
+                setTravelEnd(tempList,TravelEndReason.EUS_OVER)
             }
             else -> {
                 ugsValue.set(ugsValue.get().orZero() - spaceStationModel.need.orZero())
@@ -130,10 +131,10 @@ class HomeViewModel(
 
                 when {
                     bigEusCount == spaceStationsLiveData.value?.size -> {
-                        setTravelEnd(tempList)
+                        setTravelEnd(tempList,TravelEndReason.INSUFFICIENT_EUS)
                     }
                     possibleTravelCount == 0 -> {
-                        setTravelEnd(tempList)
+                        setTravelEnd(tempList,TravelEndReason.FINISHED_ALL_TRAVEL)
                     }
                     else -> {
                         currentLocationX = spaceStationModel.coordinateX.orZero()
@@ -146,12 +147,12 @@ class HomeViewModel(
         }
     }
 
-    private fun setTravelEnd(list: ArrayList<SpaceStationModel>?){
+    private fun setTravelEnd(list: ArrayList<SpaceStationModel>?,travelEndReason: TravelEndReason){
         damageTimer?.cancel()
         currentLocationX = 0f
         currentLocationY = 0f
         currentStation.set(WORLD)
-        travelEndLiveData.postValue(Unit)
+        travelEndLiveData.postValue(travelEndReason)
         list?.forEach {
             it.isTravelNotPossible = true
         }
@@ -237,7 +238,7 @@ class HomeViewModel(
                 damageTimeLiveData.postValue(0)
                 damageCapacity.set(damageCapacity.get().orZero() - 10)
                 if (damageCapacity.get().orZero() == 0){
-                    setTravelEnd(spaceStationsLiveData.value)
+                    setTravelEnd(spaceStationsLiveData.value,TravelEndReason.DAMAGE_OVER)
                 }
                 else {
                     damageTimeLiveData.postValue(dsValue.get().orZero()/1000)

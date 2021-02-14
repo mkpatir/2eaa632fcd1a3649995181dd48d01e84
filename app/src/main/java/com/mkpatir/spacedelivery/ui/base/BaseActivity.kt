@@ -1,9 +1,14 @@
 package com.mkpatir.spacedelivery.ui.base
 
+import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mkpatir.spacedelivery.R
 
 abstract class BaseActivity<D: ViewDataBinding,VM: BaseViewModel>: AppCompatActivity() {
 
@@ -43,6 +48,35 @@ abstract class BaseActivity<D: ViewDataBinding,VM: BaseViewModel>: AppCompatActi
                 }
             }
         }
+    }
+
+    fun showAlertDialog(
+        context: Context,
+        @StringRes title: Int,
+        @StringRes message: Int,
+        @StringRes positiveButtonText: Int,
+        isNegativeButton: Boolean = false,
+        positiveButtonClick: (() -> Unit)? = null
+    ) {
+        val dialog = MaterialAlertDialogBuilder(context)
+        dialog.apply {
+            setCancelable(false)
+            setTitle(getString(title))
+            setMessage(getString(message))
+            setPositiveButton(
+                positiveButtonText
+            ) { dialog: DialogInterface, _: Int ->
+                positiveButtonClick?.let { it() }
+                dialog.dismiss()
+            }
+            if (isNegativeButton){
+                setNegativeButton(
+                    getString(R.string.cancel)
+                ) { dialog: DialogInterface, _: Int ->
+                    dialog.dismiss()
+                }
+            }
+        }.show()
     }
 
     companion object {

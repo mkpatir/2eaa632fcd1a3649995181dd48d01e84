@@ -1,7 +1,6 @@
 package com.mkpatir.spacedelivery.ui.spaceship
 
 import android.content.Intent
-import androidx.lifecycle.Observer
 import com.mkpatir.spacedelivery.R
 import com.mkpatir.spacedelivery.databinding.ActivitySpaceshipBinding
 import com.mkpatir.spacedelivery.internal.extension.onProgressChanged
@@ -47,9 +46,29 @@ class SpaceShipActivity: BaseActivity<ActivitySpaceshipBinding,SpaceShipViewMode
                     when(property){
                         CheckProperty.CONTINUE -> {
                             startActivity(Intent(this@SpaceShipActivity,HomeActivity::class.java))
+                            finish()
                         }
-                        CheckProperty.CONTINUE_WITH_MISSING_COUNT -> {}
-                        CheckProperty.MISSING_PROPERTY -> {}
+                        CheckProperty.CONTINUE_WITH_MISSING_COUNT -> {
+                            showAlertDialog(
+                                this@SpaceShipActivity,
+                                R.string.alert,
+                                R.string.space_ship_missing_property_continue_message,
+                                R.string.ok,
+                                true
+                            ){
+                                startActivity(Intent(this@SpaceShipActivity,HomeActivity::class.java))
+                                finish()
+                            }
+                        }
+                        CheckProperty.MISSING_PROPERTY -> {
+                            showAlertDialog(
+                                this@SpaceShipActivity,
+                                R.string.alert,
+                                R.string.space_ship_missing_property_message,
+                                R.string.ok,
+                                false
+                            )
+                        }
                     }
                 }
             })

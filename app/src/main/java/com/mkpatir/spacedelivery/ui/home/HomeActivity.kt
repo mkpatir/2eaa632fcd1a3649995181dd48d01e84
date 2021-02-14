@@ -1,11 +1,11 @@
 package com.mkpatir.spacedelivery.ui.home
 
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.mkpatir.spacedelivery.R
 import com.mkpatir.spacedelivery.databinding.ActivityHomeBinding
 import com.mkpatir.spacedelivery.internal.extension.gone
 import com.mkpatir.spacedelivery.internal.extension.visible
+import com.mkpatir.spacedelivery.models.TravelEndReason
 import com.mkpatir.spacedelivery.ui.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -79,7 +79,12 @@ class HomeActivity: BaseActivity<ActivityHomeBinding,HomeViewModel>() {
             }
 
             travelEndLiveData.observe(this@HomeActivity){
-                Toast.makeText(this@HomeActivity,"seyahat sona erdi",Toast.LENGTH_LONG).show()
+                showAlertDialog(
+                    this@HomeActivity,
+                    R.string.travel_finished_title,
+                    getTravelEndReasonMessage(it),
+                    R.string.ok
+                )
             }
 
             damageTimeLiveData.observe(this@HomeActivity){
@@ -93,6 +98,16 @@ class HomeActivity: BaseActivity<ActivityHomeBinding,HomeViewModel>() {
             favoritesLiveData.observe(this@HomeActivity){
                 favoritesAdapter.updateAdapter(it)
             }
+        }
+    }
+
+    private fun getTravelEndReasonMessage(travelEndReason: TravelEndReason): Int{
+        return when(travelEndReason){
+            TravelEndReason.UGS_OVER -> R.string.ugs_over_message
+            TravelEndReason.EUS_OVER -> R.string.eus_over_message
+            TravelEndReason.INSUFFICIENT_EUS -> R.string.insufficient_eus_message
+            TravelEndReason.DAMAGE_OVER -> R.string.damage_over_message
+            TravelEndReason.FINISHED_ALL_TRAVEL -> R.string.finished_all_travel_message
         }
     }
 }

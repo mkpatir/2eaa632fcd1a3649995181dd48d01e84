@@ -9,7 +9,20 @@
     <string name="travel">Travel</string>
     <string name="time">%1d sn</string>
     <string name="search">Ara</string>
-    
+
+    <!-- Alert Dialog -->
+    <string name="cancel">Vazgeç</string>
+    <string name="alert">Uyarı</string>
+    <string name="ok">Tamam</string>
+    <string name="space_ship_missing_property_continue_message">Daha dağıtabileceğin puanın var, yine de devam etmek ister misin ?</string>
+    <string name="space_ship_missing_property_message">Oops! Uzay geminde eksikler var, onlara dikkat et :)</string>
+    <string name="travel_finished_title">Seyahat sona erdi</string>
+    <string name="ugs_over_message">Gemimizdeki tüm kıyafetler bitti, Dünyaya dönebiliriz.</string>
+    <string name="eus_over_message">Menzilimiz bitti, Dünyaya dönüyoruz.</string>
+    <string name="insufficient_eus_message">Menzilimiz kalan istayonlara gitmeye yetmiyor, Dünyaya dönüyoruz.</string>
+    <string name="finished_all_travel_message">Bütün istasyonalara gidip kıyafetleri bıraktık, Dünyaya dönebiliriz :)</string>
+    <string name="damage_over_message">Gemimizin dayanacak gücü kalmadı kaptan :( ,Dünyaya dönüyoruz.</string>
+
     <!-- SpaceShip Screen -->
     <string name="spaceship_point">Dağıtılacak Puan : </string>
     <string name="spaceship_durability">Dayanıklılık</string>
