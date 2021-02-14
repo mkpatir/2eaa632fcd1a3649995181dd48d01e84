@@ -4,19 +4,23 @@
     <style name="ExtraBigTextAppearance">
         <item name="android:fontFamily">@font/comfortaa_bold</item>
         <item name="android:textSize">@dimen/font_x_large</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 
     <style name="BigTextAppearance">
         <item name="android:fontFamily">@font/comfortaa_bold</item>
         <item name="android:textSize">@dimen/font_large</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 
     <style name="MediumTextAppearance">
         <item name="android:fontFamily">@font/comfortaa</item>
         <item name="android:textSize">@dimen/font_medium</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="MediumTextAppearance.Bold">
+        <item name="android:fontFamily">@font/comfortaa_bold</item>
     </style>
 
     <style name="FullScreenLoadingStyle" parent="Theme.MaterialComponents.Dialog">

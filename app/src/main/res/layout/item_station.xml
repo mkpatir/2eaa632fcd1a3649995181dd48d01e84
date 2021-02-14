@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_medium"
         android:padding="@dimen/margin_medium"
-        android:background="@drawable/bg_blue_grey"
+        android:background="@drawable/bg_item"
         android:elevation="10dp">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
-            android:textAppearance="@style/MediumTextAppearance"
+            android:textAppearance="@style/BigTextAppearance"
             android:text="@string/travel"
             android:enabled="@{viewState.travelPossible}"
             app:layout_constraintTop_toBottomOf="@id/text_station_name"

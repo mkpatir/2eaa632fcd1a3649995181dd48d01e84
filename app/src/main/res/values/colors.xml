@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_a700">#2962FF</color>
     <color name="blue_grey_a50">#ECEFF1</color>
-
+    <color name="line_color">@color/black</color>
+    <color name="text_color">@color/black</color>
+    <color name="custom_item">@color/blue_grey_a50</color>
+    <color name="custom_item_button_text_color">@color/purple_500</color>
 </resources>

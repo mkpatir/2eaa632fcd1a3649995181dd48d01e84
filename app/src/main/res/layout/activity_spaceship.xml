@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/margin_medium"
-            android:background="@color/black"
+            android:background="@color/line_color"
             app:layout_constraintTop_toBottomOf="@id/text_total_point"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -77,6 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:text="@{spaceShipViewModel.durability.toString()}"
+            android:textAppearance="@style/MediumTextAppearance"
             app:layout_constraintTop_toTopOf="@id/text_durability"
             app:layout_constraintStart_toEndOf="@id/text_durability"
             tools:text="13"/>
@@ -107,6 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:text="@{spaceShipViewModel.speed.toString()}"
+            android:textAppearance="@style/MediumTextAppearance"
             app:layout_constraintTop_toTopOf="@id/text_speed"
             app:layout_constraintStart_toEndOf="@id/text_speed"
             tools:text="13"/>
@@ -137,6 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:text="@{spaceShipViewModel.capacity.toString()}"
+            android:textAppearance="@style/MediumTextAppearance"
             app:layout_constraintTop_toTopOf="@id/text_capacity"
             app:layout_constraintStart_toEndOf="@id/text_capacity"
             tools:text="13"/>
@@ -156,6 +159,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:transitionName="@string/transition_lottie"
+            android:background="@drawable/bg_oval_white"
             app:lottie_rawRes="@raw/blue_rocket"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
@@ -168,7 +172,8 @@
             android:layout_height="wrap_content"
             android:text="@string/text_continue"
             android:textAppearance="@style/BigTextAppearance"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/space_ship_lottie"
+            app:layout_constraintBottom_toBottomOf="@id/space_ship_lottie"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

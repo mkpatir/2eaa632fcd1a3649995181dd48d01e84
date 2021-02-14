@@ -24,7 +24,7 @@
             android:id="@+id/line_favorites"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@color/black"
+            android:background="@color/line_color"
             android:layout_margin="@dimen/margin_medium"
             app:layout_constraintTop_toBottomOf="@id/text_favorites"
             app:layout_constraintStart_toStartOf="parent"

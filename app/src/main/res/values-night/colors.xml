@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="line_color">#FFFFFF</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="custom_item">#2979FF</color>
+    <color name="custom_item_button_text_color">@color/blue_grey_a50</color>
+</resources>
