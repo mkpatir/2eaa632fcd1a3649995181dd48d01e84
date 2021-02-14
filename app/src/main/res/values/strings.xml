@@ -8,6 +8,7 @@
     <string name="favorites">Favoriler</string>
     <string name="travel">Travel</string>
     <string name="time">%1d sn</string>
+    <string name="search">Ara</string>
     
     <!-- SpaceShip Screen -->
     <string name="spaceship_point">Dağıtılacak Puan : </string>

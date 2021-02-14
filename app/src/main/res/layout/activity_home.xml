@@ -31,6 +31,7 @@
             android:id="@+id/favorites"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin_normal"
             layout="@layout/layout_favorites"
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
