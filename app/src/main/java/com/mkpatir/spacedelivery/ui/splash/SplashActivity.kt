@@ -1,10 +1,14 @@
 package com.mkpatir.spacedelivery.ui.splash
 
-import android.animation.Animator
+import android.view.View
+import android.util.Pair
+import androidx.appcompat.widget.AppCompatTextView
 import com.mkpatir.spacedelivery.R
 import com.mkpatir.spacedelivery.databinding.ActivitySplashBinding
+import com.mkpatir.spacedelivery.internal.extension.onAnimationEnd
 import com.mkpatir.spacedelivery.ui.base.BaseActivity
 import com.mkpatir.spacedelivery.ui.base.EmptyViewModel
+import com.mkpatir.spacedelivery.ui.spaceship.SpaceShipActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashActivity: BaseActivity<ActivitySplashBinding,EmptyViewModel>() {
@@ -20,51 +24,35 @@ class SplashActivity: BaseActivity<ActivitySplashBinding,EmptyViewModel>() {
     override fun setupUI() {
         getDataBinding().apply {
 
-            /*lottieView.animate().apply {
+            lottieView.animate().apply {
                 alpha(1f)
                 translationY(0f)
                 duration = ANIMATION_TIME
-                setListener(getAnimationListener(AnimationType.IMAGE_TRANSITION))
-            }*/
-        }
-    }
-
-    private fun getAnimationListener(type: AnimationType) = object : Animator.AnimatorListener {
-        override fun onAnimationStart(animation: Animator?) {
-
-        }
-
-        override fun onAnimationEnd(animation: Animator?) {
-            when(type){
-                AnimationType.IMAGE_TRANSITION -> {
-                    getDataBinding().appNameFirstPart.animate().apply {
-                        alpha(1f)
-                        translationX(0f)
-                        duration = ANIMATION_TIME
+                onAnimationEnd {
+                    setAnimationToTextViews(listOf(appNameFirstPart,appNameSecondPart))
+                    lottieView.playAnimation()
+                    lottieView.onAnimationEnd {
+                        val lottieTransition = Pair<View,String>(lottieView,getString(R.string.transition_lottie))
+                        SpaceShipActivity.startSpaceShipActivity(this@SplashActivity,lottieTransition)
                     }
                 }
-                AnimationType.LOTTIE -> {
-
-                }
-                AnimationType.TEXT -> {
-
-                }
             }
-        }
-
-        override fun onAnimationCancel(animation: Animator?) {
 
         }
-
-        override fun onAnimationRepeat(animation: Animator?) {
-
-        }
-
     }
 
-    enum class AnimationType{
-        IMAGE_TRANSITION,
-        LOTTIE,
-        TEXT
+    override fun onStop() {
+        super.onStop()
+        finish()
+    }
+
+    private fun setAnimationToTextViews(list: List<AppCompatTextView>){
+        list.forEach {
+            it.animate().apply {
+                alpha(1f)
+                translationX(0f)
+                duration = ANIMATION_TIME
+            }
+        }
     }
 }

@@ -151,6 +151,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/space_ship_lottie"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:transitionName="@string/transition_lottie"
+            app:lottie_rawRes="@raw/blue_rocket"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_continue"
             android:layout_width="wrap_content"

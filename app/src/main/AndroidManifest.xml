@@ -18,16 +18,16 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Splash">
-        </activity>
-
-        <activity
-            android:name=".ui.spaceship.SpaceShipActivity"
-            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.spaceship.SpaceShipActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity

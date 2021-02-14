@@ -28,6 +28,7 @@
     <string name="spaceship_durability">Dayanıklılık</string>
     <string name="spaceship_speed">Hız</string>
     <string name="spaceship_capacity">Kapasite</string>
+    <string name="transition_lottie">transition lottie</string>
 
     <!-- Home Screen -->
     <string name="home_ugs">UGS : </string>

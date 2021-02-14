@@ -1,6 +1,10 @@
 package com.mkpatir.spacedelivery.ui.spaceship
 
+import android.app.ActivityOptions
 import android.content.Intent
+import android.view.View
+import android.util.Pair
+import androidx.appcompat.app.AppCompatActivity
 import com.mkpatir.spacedelivery.R
 import com.mkpatir.spacedelivery.databinding.ActivitySpaceshipBinding
 import com.mkpatir.spacedelivery.internal.extension.onProgressChanged
@@ -11,6 +15,13 @@ import com.mkpatir.spacedelivery.ui.home.HomeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SpaceShipActivity: BaseActivity<ActivitySpaceshipBinding,SpaceShipViewModel>() {
+
+    companion object {
+        fun startSpaceShipActivity(context: AppCompatActivity,transition: Pair<View,String>){
+            val activityOptions = ActivityOptions.makeSceneTransitionAnimation(context,transition)
+            context.startActivity(Intent(context,SpaceShipActivity::class.java),activityOptions.toBundle())
+        }
+    }
 
     override fun setLayout(): Int = R.layout.activity_spaceship
 
@@ -45,7 +56,7 @@ class SpaceShipActivity: BaseActivity<ActivitySpaceshipBinding,SpaceShipViewMode
                 it?.let { property ->
                     when(property){
                         CheckProperty.CONTINUE -> {
-                            startActivity(Intent(this@SpaceShipActivity,HomeActivity::class.java))
+                            HomeActivity.startHomeActivity(this@SpaceShipActivity)
                             finish()
                         }
                         CheckProperty.CONTINUE_WITH_MISSING_COUNT -> {
@@ -56,7 +67,7 @@ class SpaceShipActivity: BaseActivity<ActivitySpaceshipBinding,SpaceShipViewMode
                                 R.string.ok,
                                 true
                             ){
-                                startActivity(Intent(this@SpaceShipActivity,HomeActivity::class.java))
+                                HomeActivity.startHomeActivity(this@SpaceShipActivity)
                                 finish()
                             }
                         }

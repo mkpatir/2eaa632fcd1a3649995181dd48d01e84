@@ -1,5 +1,7 @@
 package com.mkpatir.spacedelivery.ui.home
 
+import android.content.Context
+import android.content.Intent
 import androidx.core.widget.doOnTextChanged
 import com.mkpatir.spacedelivery.R
 import com.mkpatir.spacedelivery.databinding.ActivityHomeBinding
@@ -10,6 +12,12 @@ import com.mkpatir.spacedelivery.ui.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity: BaseActivity<ActivityHomeBinding,HomeViewModel>() {
+
+    companion object {
+        fun startHomeActivity(context: Context){
+            context.startActivity(Intent(context,HomeActivity::class.java))
+        }
+    }
 
     private val stationAdapter = StationAdapter()
     private val favoritesAdapter = FavoritesAdapter()
