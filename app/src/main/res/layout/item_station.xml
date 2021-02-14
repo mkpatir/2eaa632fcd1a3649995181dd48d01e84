@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewState"
+            type="com.mkpatir.spacedelivery.ui.home.StationViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:padding="@dimen/margin_medium"
+        android:background="@drawable/bg_rectangle_purple">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/value_need"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.need}"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="2000/10000"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/value_eus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.distance}"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/value_need"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="242EUS"/>
+
+        <ImageView
+            android:id="@+id/image_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{viewState.favoriteDrawable}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/ic_favorite_empty"
+            tools:ignore="ContentDescription" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_station_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_large"
+            android:text="@{viewState.stationName}"
+            android:textAppearance="@style/BigTextAppearance"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/value_eus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="YZCRFJ - 246"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_travel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textAppearance="@style/MediumTextAppearance"
+            android:text="@string/travel"
+            app:layout_constraintTop_toBottomOf="@id/text_station_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

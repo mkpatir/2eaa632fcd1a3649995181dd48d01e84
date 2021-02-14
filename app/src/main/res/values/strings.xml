@@ -2,7 +2,23 @@
     <string name="app_name">Space Delivery</string>
     <string name="app_name_first_part">Space</string>
     <string name="app_name_second_part">Delivery</string>
+
+    <string name="text_continue">Devam Et</string>
+    <string name="station">İstasyon</string>
+    <string name="favorites">Favoriler</string>
+    <string name="travel">Travel</string>
     
     <!-- SpaceShip Screen -->
-    <string name="spaceship_point">Dağıtılacak Puan</string>
+    <string name="spaceship_point">Dağıtılacak Puan : </string>
+    <string name="spaceship_durability">Dayanıklılık</string>
+    <string name="spaceship_speed">Hız</string>
+    <string name="spaceship_capacity">Kapasite</string>
+
+    <!-- Home Screen -->
+    <string name="home_ugs">UGS : </string>
+    <string name="home_eus">EUS : </string>
+    <string name="home_ds">DS : </string>
+    <string name="space_station_need_capacity">%1d/%2d</string>
+    <string name="space_station_distance">%1d EUS</string>
+
 </resources>

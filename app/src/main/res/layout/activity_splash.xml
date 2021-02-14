@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:translationY="@dimen/margin_xxx_large"
+            android:layout_marginBottom="@dimen/margin_xxx_large"
+            app:lottie_rawRes="@raw/blue_rocket"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_name_first_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_x_small"
+            android:text="@string/app_name_first_part"
+            android:translationX="-100dp"
+            android:alpha="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/lottie_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/app_name_second_part"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_name_second_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x_small"
+            android:text="@string/app_name_second_part"
+            android:translationX="100dp"
+            android:alpha="0"
+            app:layout_constraintTop_toBottomOf="@id/lottie_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/app_name_first_part"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

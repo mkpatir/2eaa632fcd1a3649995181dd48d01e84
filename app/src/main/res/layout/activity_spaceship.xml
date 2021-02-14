@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="spaceShipViewModel"
+            type="com.mkpatir.spacedelivery.ui.spaceship.SpaceShipViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spaceship_point"
+            android:textAppearance="@style/BigTextAppearance"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/text_total_point"
+            app:layout_constraintBottom_toBottomOf="@id/text_total_point"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/text_total_point"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_total_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_normal"
+            android:background="@drawable/bg_rectangle_blue"
+            android:text="@{spaceShipViewModel.totalPoint.toString()}"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_point"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="15"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/text_total_point"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/spaceship_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_durability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/spaceship_durability"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/spaceship_name"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/value_durability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@{spaceShipViewModel.durability.toString()}"
+            app:layout_constraintTop_toTopOf="@id/text_durability"
+            app:layout_constraintStart_toEndOf="@id/text_durability"
+            tools:text="13"/>
+
+        <SeekBar
+            android:id="@+id/seek_bar_durability"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:max="@{spaceShipViewModel.durabilityMaxProgress}"
+            app:layout_constraintTop_toBottomOf="@id/text_durability"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/spaceship_speed"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/seek_bar_durability"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/value_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@{spaceShipViewModel.speed.toString()}"
+            app:layout_constraintTop_toTopOf="@id/text_speed"
+            app:layout_constraintStart_toEndOf="@id/text_speed"
+            tools:text="13"/>
+
+        <SeekBar
+            android:id="@+id/seek_bar_speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:max="@{spaceShipViewModel.speedMaxProgress}"
+            app:layout_constraintTop_toBottomOf="@id/text_speed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/spaceship_capacity"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/seek_bar_speed"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/value_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@{spaceShipViewModel.capacity.toString()}"
+            app:layout_constraintTop_toTopOf="@id/text_capacity"
+            app:layout_constraintStart_toEndOf="@id/text_capacity"
+            tools:text="13"/>
+
+        <SeekBar
+            android:id="@+id/seek_bar_capacity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:max="@{spaceShipViewModel.capacityMaxProgress}"
+            app:layout_constraintTop_toBottomOf="@id/text_capacity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_continue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_continue"
+            android:textAppearance="@style/BigTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

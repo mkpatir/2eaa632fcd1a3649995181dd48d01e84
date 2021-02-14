@@ -7,15 +7,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object AppServiceFactory {
 
+    private const val BASE_URL = "https://run.mocky.io/v3/"
+
     fun buildService(): AppService{
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BASE_URL)
             .client(buildHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val service = retrofit.create(AppService::class.java)
-        return service
+        return retrofit.create(AppService::class.java)
     }
 
     private fun buildHttpClient(): OkHttpClient{

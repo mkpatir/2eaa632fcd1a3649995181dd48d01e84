@@ -47,6 +47,10 @@ dependencies {
     implementation androidDependencies.androidXCore
     implementation androidDependencies.constraintLayout
     implementation androidDependencies.material
+    implementation androidDependencies.coroutineCore
+    implementation androidDependencies.coroutineAndroid
+    implementation androidDependencies.viewModelLifecycle
+    implementation androidDependencies.recyclerView
 
     implementation thirdPartyDependencies.koin
     implementation thirdPartyDependencies.koinScope
