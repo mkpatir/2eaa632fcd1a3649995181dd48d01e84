@@ -14,175 +14,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/margin_medium"
+        android:animateLayoutChanges="true"
         tools:ignore="ContentDescription">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_ugs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:textAppearance="@style/BigTextAppearance"
-            android:text="@string/home_ugs"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_ugs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:text="@{homeViewModel.ugsValue.toString()}"
-            android:textAppearance="@style/BigTextAppearance"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_ugs"
-            tools:text="5000"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_eus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/BigTextAppearance"
-            android:text="@string/home_eus"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/value_eus"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_eus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:text="@{homeViewModel.eusValue.toString()}"
-            android:textAppearance="@style/BigTextAppearance"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_eus"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="500"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_ds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:textAppearance="@style/BigTextAppearance"
-            android:text="@string/home_ds"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/value_ds"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_ds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_medium"
-            android:text="@{homeViewModel.dsValue.toString()}"
-            android:textAppearance="@style/BigTextAppearance"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="50000"/>
-
-        <View
-            android:id="@+id/line_spaceship_data"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:layout_marginHorizontal="@dimen/margin_medium"
-            android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/text_ugs"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/spaceship_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:text="@{homeViewModel.spaceshipName}"
-            android:textAppearance="@style/BigTextAppearance"
-            app:layout_constraintTop_toTopOf="@id/value_spaceship_damage"
-            app:layout_constraintBottom_toBottomOf="@id/value_spaceship_damage"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="WhartonX"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_spaceship_damage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:padding="@dimen/margin_small"
-            android:background="@drawable/bg_rectangle_blue"
-            android:text="@{homeViewModel.damageCapacity.toString()}"
-            android:textAppearance="@style/MediumTextAppearance"
-            app:layout_constraintTop_toBottomOf="@id/line_spaceship_data"
-            app:layout_constraintStart_toEndOf="@id/spaceship_name"
-            app:layout_constraintEnd_toStartOf="@id/value_ds_time"
-            tools:text="100"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_ds_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_normal"
-            android:padding="@dimen/margin_small"
-            android:background="@drawable/bg_rectangle_blue"
-            android:textAppearance="@style/MediumTextAppearance"
-            app:layout_constraintTop_toBottomOf="@id/line_spaceship_data"
-            app:layout_constraintStart_toEndOf="@id/value_spaceship_damage"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="49s"/>
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edit_text_search"
+        <include
+            android:id="@+id/stations"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:layout_marginHorizontal="@dimen/margin_medium"
-            app:layout_constraintTop_toBottomOf="@id/spaceship_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <ImageView
-            android:id="@+id/image_left_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:rotation="180"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintTop_toTopOf="@id/rv_stations"
-            app:layout_constraintBottom_toBottomOf="@id/rv_stations"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/image_right_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintTop_toTopOf="@id/rv_stations"
-            app:layout_constraintBottom_toBottomOf="@id/rv_stations"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_stations"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="1"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_search"
-            app:layout_constraintBottom_toTopOf="@id/text_current_station"
-            app:layout_constraintStart_toEndOf="@id/image_left_arrow"
-            app:layout_constraintEnd_toStartOf="@id/image_right_arrow"
-            tools:listitem="@layout/item_station"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_current_station"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:textAppearance="@style/BigTextAppearance"
-            android:gravity="center"
+            android:layout_height="0dp"
+            layout="@layout/layout_stations"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Tgvslxp"/>
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <include
+            android:id="@+id/favorites"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            layout="@layout/layout_favorites"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_view"

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewState"
+            type="com.mkpatir.spacedelivery.ui.home.FavoriteViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:padding="@dimen/margin_medium"
+        android:background="@drawable/bg_rectangle_blue">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_favorite_station_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:text="@{viewState.stationName}"
+            android:textAppearance="@style/BigTextAppearance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_favorite"
+            tools:text="YFCRX-256"/>
+
+        <ImageView
+            android:id="@+id/image_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite_full"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:text="@{viewState.distance}"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/text_favorite_station_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_favorite"
+            tools:text="282EUS"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_capacity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:text="@{viewState.capacity}"
+            android:textAppearance="@style/MediumTextAppearance"
+            app:layout_constraintTop_toBottomOf="@id/text_distance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_favorite"
+            tools:text="Kapasite : 10000"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,5 +1,6 @@
 package com.mkpatir.spacedelivery.internal.extension
 
+import android.view.View
 import android.widget.SeekBar
 
 fun SeekBar.onProgressChanged(onProgressChanged:(progress: Int) -> Unit){
@@ -19,4 +20,12 @@ fun SeekBar.onProgressChanged(onProgressChanged:(progress: Int) -> Unit){
         }
 
     })
+}
+
+fun View.visible(){
+    visibility = View.VISIBLE
+}
+
+fun View.gone(){
+    visibility = View.GONE
 }

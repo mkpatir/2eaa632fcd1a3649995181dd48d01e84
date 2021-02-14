@@ -51,6 +51,8 @@ dependencies {
     implementation androidDependencies.coroutineAndroid
     implementation androidDependencies.viewModelLifecycle
     implementation androidDependencies.recyclerView
+    implementation androidDependencies.roomRuntime
+    kapt androidDependencies.roomCompailer
 
     implementation thirdPartyDependencies.koin
     implementation thirdPartyDependencies.koinScope

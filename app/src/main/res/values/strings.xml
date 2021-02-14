@@ -7,6 +7,7 @@
     <string name="station">İstasyon</string>
     <string name="favorites">Favoriler</string>
     <string name="travel">Travel</string>
+    <string name="time">%1d sn</string>
     
     <!-- SpaceShip Screen -->
     <string name="spaceship_point">Dağıtılacak Puan : </string>
@@ -20,5 +21,6 @@
     <string name="home_ds">DS : </string>
     <string name="space_station_need_capacity">%1d/%2d</string>
     <string name="space_station_distance">%1d EUS</string>
+    <string name="space_station_capacity">Kapasite : %1d</string>
 
 </resources>
