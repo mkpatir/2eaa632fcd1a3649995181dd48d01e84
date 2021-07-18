@@ -10,10 +10,8 @@ ext{
 
     koinVersion = "2.1.5"
     retrofitVersion = "2.8.1"
-    retrofitAdapterVersion = "2.9.0"
     loggingInterceptorVersion = "4.7.2"
     conscryptVersion = "2.4.0"
-    rxJavaVersion = "3.0.0"
     lottieVersion = "3.4.1"
     coroutineVersion = "1.3.6"
 
